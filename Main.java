@@ -8,7 +8,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
 
         // Variáveis e objetos
-        int i, largura_tela = 800, altura_tela = (int) (largura_tela * 0.75f);
+        int i, largura_tela = 640, altura_tela = (int) (largura_tela * 0.75f);
         int y_caixa_jog = (int) (largura_tela * 0.3f);
         String cores[] = { "#8B0000", "#0000FF", "#008B00", "#B8860B", "#800080", "#000000" };
         Pane root = new Pane();
