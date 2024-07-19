@@ -1,20 +1,22 @@
 {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
             "type": "java",
             "name": "Current File",
             "request": "launch",
-            "mainClass": "${file}",
-            "vmArgs": "--module-path C:\\Users\\Walter\\Documents\\java\\javafx-sdk-22.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+            "mainClass": "${file}"
         },
         {
             "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",
-            "projectName": "life_game_8b9aa10",
-            "vmArgs": "--module-path C:\\Users\\Walter\\Documents\\java\\javafx-sdk-22.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+            "projectName": "life_game_javafx_c6e59783",
+            "vmArgs": "--module-path C:/Users/Walter/Documents/java/javafx-sdk-22.0.1/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

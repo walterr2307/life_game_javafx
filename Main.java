@@ -5,10 +5,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
 
         // Variáveis e objetos
-        int i, largura_tela = 800, altura_tela = (int) (largura_tela * 0.75f);
+        int i, largura_tela = 640, altura_tela = (int) (largura_tela * 0.75f);
         int y_caixa_jog = (int) (largura_tela * 0.3f);
         String cores[] = { "#8B0000", "#0000FF", "#008B00", "#B8860B", "#800080", "#000000" };
         Pane root = new Pane();
@@ -47,9 +47,9 @@ public class Main extends Application {
 
         // Configurando a cena
         root.setStyle("-fx-background-color: #B0C4DE;");
-        primaryStage.setTitle("Game of Life");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setTitle("Game of Life");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
