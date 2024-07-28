@@ -19,7 +19,7 @@ public class Tabuleiro {
     private TextField caixa_dado1, caixa_dado2;
     private Button botao_dados, caixa_avisos;
 
-    public Tabuleiro(Pane root, int largura_tela, int altura_tela, ArrayList<Jogador> jogs) {
+    public Tabuleiro(Stage stage, Pane root, int largura_tela, int altura_tela, ArrayList<Jogador> jogs) {
         this.caixa_dado1 = gerarCaixaDado(largura_tela, altura_tela, 1);
         this.caixa_dado2 = gerarCaixaDado(largura_tela, altura_tela, 2);
         this.botao_dados = gerarBotao(largura_tela, altura_tela);
@@ -27,7 +27,7 @@ public class Tabuleiro {
 
         // Adicionando o evento de clique ao botão
         botao_dados.setOnAction(event -> {
-            interagirBotao(jogs, largura_tela, altura_tela, root);
+            interagirBotao(jogs, largura_tela, altura_tela, stage, root);
         });
 
         root.getChildren().addAll(caixa_dado1, caixa_dado2, botao_dados);
@@ -66,10 +66,10 @@ public class Tabuleiro {
         return dados;
     }
 
-    public void interagirBotao(ArrayList<Jogador> jogs, int largura_tela, int altura_tela, Pane root) {
+    public void interagirBotao(ArrayList<Jogador> jogs, int largura_tela, int altura_tela, Stage stage, Pane root) {
         int dados[] = this.girarDados(), prox_turno = (this.turno_atual + 1) % jogs.size();
         Jogador jog = jogs.get(this.turno_atual);
-        FimDeJogo fim_de_jogo = new FimDeJogo();
+        TelaGameOver game_over = new TelaGameOver(stage);
 
         // Incrementando o número de rodadas
         jog.addRodada();
@@ -136,10 +136,9 @@ public class Tabuleiro {
 
         // FIM DO ALGORITMO PARA A MOVIMENTAÇÃO DAS PEÇAS
 
-        // ESSE METODO PRECISA SER AJUSTADO
         // Finalizando o jogo
-        if (jog.getCasaAtual() == 40)
-            fim_de_jogo.finalizar();
+        if (jog.getCasaAtual() >= 40)
+            game_over.exibirTela(jogs);
 
         // Alterando para o próximo jogador
         if (dados[0] != dados[1])

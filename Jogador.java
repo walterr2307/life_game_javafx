@@ -88,6 +88,10 @@ public abstract class Jogador {
         return this.cor;
     }
 
+    public String getCorExtenso() {
+        return this.cor_extenso;
+    }
+
     public void setJogadaLiberada(boolean jogada_liberada) {
         this.jogada_liberada = jogada_liberada;
     }
