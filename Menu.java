@@ -1,29 +1,41 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import javafx.scene.layout.Pane;
 
 class Menu {
-    public void embaralharCores(ArrayList<String> cores) {
-        Collections.shuffle(cores);
+    public void embaralhar(ArrayList<String> cores, ArrayList<Integer> tipos_jogs) {
+        int i, j, copia_tipo;
+        String copia_cor;
+
+        for (i = cores.size() - 1; i > 0; i--) {
+            j = (int) (Math.random() * (i + 1));
+
+            copia_cor = cores.get(i);
+            cores.set(i, cores.get(j));
+            cores.set(j, copia_cor);
+
+            copia_tipo = tipos_jogs.get(i);
+            tipos_jogs.set(i, tipos_jogs.get(j));
+            tipos_jogs.set(j, copia_tipo);
+        }
     }
 
     public ArrayList<Jogador> inicializarJogadores(ArrayList<String> cores, ArrayList<Integer> tipos_jogs,
             int y_caixa_jog, Pane root, int largura_tela, int altura_tela) {
-        int copia = tipos_jogs.get(0);
+        int indice = (int) (Math.random() * tipos_jogs.size()), copia = tipos_jogs.get(indice);
         boolean iguais = true;
         ArrayList<Jogador> jogs = new ArrayList<>();
 
         // ALGORITMO PARA EVITAR QUE O TIPO DE JOGADORES SEJAM TODOS O MESMO
         for (Integer tipo_jog : tipos_jogs) {
-            if (tipo_jog != tipos_jogs.get(0)) {
+            if (tipo_jog != tipos_jogs.get(indice)) {
                 iguais = false;
                 break;
             }
         }
 
         if (iguais == true) {
-            while (tipos_jogs.get(0) == copia) {
-                tipos_jogs.set(0, (int) (Math.random() * 3));
+            while (tipos_jogs.get(indice) == copia) {
+                tipos_jogs.set(indice, (int) (Math.random() * 3));
             }
         }
         // FIM DO ALGORITMO
@@ -38,6 +50,7 @@ class Menu {
             } else {
                 jog = new JogadorSortudo(cores.get(i), y_caixa_jog, root, largura_tela, altura_tela);
             }
+            
             jogs.add(jog);
             y_caixa_jog += (largura_tela / 25f);
 

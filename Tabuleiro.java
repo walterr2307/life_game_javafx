@@ -146,7 +146,7 @@ public class Tabuleiro {
 
         this.atualizarCircProxJog(jogs.get(this.turno_atual), altura_tela);
 
-        // Colorindo a as caixas dos dados
+        // Colorindo as caixas dos dados
         this.alterarCorCaixasTexto(jog.getCor());
     }
 

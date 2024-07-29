@@ -114,10 +114,8 @@ public class Main extends Application {
         Menu menu = new Menu();
         Tabuleiro tabuleiro;
 
-        // Configurando o menu
-        menu.embaralharCores(cores);
-        
         // Iniciando o jogo através de um método da classe Menu
+        menu.embaralhar(cores, tipos_jogs);
         jogs = menu.inicializarJogadores(cores, tipos_jogs, y_caixa_jog, root, largura_tela, altura_tela);
 
         // Ajustando o tabuleiro
